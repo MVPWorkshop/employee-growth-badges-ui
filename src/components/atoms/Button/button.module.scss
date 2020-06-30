@@ -1,0 +1,16 @@
+.appButton {
+  min-height: 40px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: bold;
+  padding: 7px 16px;
+
+  &:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
