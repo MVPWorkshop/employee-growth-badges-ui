@@ -41,5 +41,16 @@ export class Web3NoAccountFound extends BaseError {
   constructor() {
     super(EErrorTypes.WEB3_NO_ACCOUNT_FOUND)
   }
+}
 
+export class Web3NoProviderFound extends BaseError {
+  constructor() {
+    super(EErrorTypes.WEB3_NO_PROVIDER_FOUND);
+  }
+}
+
+export class Web3UserDeclinedSigning extends BaseError {
+  constructor() {
+    super(EErrorTypes.WEB3_USER_DECLINED_SIGNING);
+  }
 }

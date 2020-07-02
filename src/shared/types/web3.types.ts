@@ -17,3 +17,7 @@ export enum ENetworkTypes {
   GOERLI = 'goerli',
   PRIVATE = 'private'
 }
+
+export enum EWalletTypes {
+  METAMASK = 'METAMASK'
+}
