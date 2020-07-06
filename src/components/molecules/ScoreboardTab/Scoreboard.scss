@@ -1,0 +1,51 @@
+.scoreboard-tab--wrapper{
+  h2{
+    margin-top: 70px;
+    margin-bottom: 70px;
+    font-family: 'Rubik',sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 120%;
+    color: #30313B;
+  }
+}
+.scoreboard-tab-table-head{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  .rank,.address,.badges{
+    font-family: 'Rubik',sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: #30313B;
+    mix-blend-mode: normal;
+    margin-right: 20px;
+  }
+}
+.scoreboard-item{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  .scoreboard-no{
+    width:40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #6B7AFF;
+    color:#fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin-right: 35px;
+  }
+  .scoreboard-address{
+    margin-right: 35px;
+  }
+  img{
+    width:40px;
+    margin-right: 20px;
+  }
+}

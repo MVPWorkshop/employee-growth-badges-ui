@@ -1,0 +1,7 @@
+export enum EBadgeSteps {
+    SELECT_TYPE = "SELECT_TYPE",
+    SELECT_DESTINATION = "SELECT_DESTINATION",
+    NOTE = "NOTE",
+    PREVIEW = "PREVIEW"
+
+}

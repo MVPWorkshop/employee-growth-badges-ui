@@ -43,7 +43,7 @@ class Web3Service {
     }
   }
 
-  public async askForPermission() {
+  private async askForPermission() {
     this.checkIfInitialised();
     this.checkEthereumSupport();
 
@@ -70,7 +70,7 @@ class Web3Service {
     })
   }
 
-  public async getCurrentAccountAddress(): Promise<string> {
+  public async getCurrentAccountAddress() {
     return new Promise(async (resolve, reject) => {
       try {
         await this.askForPermission();

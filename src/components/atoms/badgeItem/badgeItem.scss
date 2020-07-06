@@ -1,0 +1,29 @@
+.badge-item--wrapper{
+  width:calc(50% - 29px);
+img{
+  width:100%;
+}
+  span{
+    font-family: 'Rubik',sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: #30313B;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin: 25px 0px;
+    background: rgba(48, 49, 59, 0.3);
+    border-radius: 30px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+}
