@@ -26,12 +26,11 @@ class Badges extends Component{
               <div className="fake-badges">
                   <h2>My badges</h2>
                   <div className="badges-wrapper">
-                      <BadgeItem status={EBadgeStatus.VOTING} badgeType={EBadgeTypes.ANNIVERSARY}/>
-                      <BadgeItem status={EBadgeStatus.PENDING} badgeType={EBadgeTypes.PROMOTED}/>
-                      <BadgeItem status={EBadgeStatus.VOTE_SUCCESSFUL} badgeType={EBadgeTypes.TEAMMATE_MONTH}/>
-                      <BadgeItem status={EBadgeStatus.SENT} badgeType={EBadgeTypes.TEAMMATE_YEAR
+                      <BadgeItem  badgeType={EBadgeTypes.ANNIVERSARY}/>
+                      <BadgeItem  badgeType={EBadgeTypes.PROMOTED}/>
+                      <BadgeItem  badgeType={EBadgeTypes.TEAMMATE_MONTH}/>
+                      <BadgeItem  badgeType={EBadgeTypes.TEAMMATE_YEAR
                       }/>
-
                   </div>
               </div>
             </div>

@@ -34,21 +34,21 @@ class CreateBadge extends Component{
     }
     render(){
 
-        var BadgeImg = <BadgeItem status={EBadgeStatus.PENDING} badgeType={EBadgeTypes.PROMOTED}/>;
+        let BadgeImg = <BadgeItem  badgeType={EBadgeTypes.PROMOTED}/>;
         if (this.state.badgeType === "Promotion"){
-            BadgeImg = <BadgeItem status={EBadgeStatus.PENDING} badgeType={EBadgeTypes.PROMOTED}/>;
+            BadgeImg = <BadgeItem  badgeType={EBadgeTypes.PROMOTED}/>;
         }
         if (this.state.badgeType === "Anniversary"){
-            BadgeImg = <BadgeItem status={EBadgeStatus.VOTING} badgeType={EBadgeTypes.ANNIVERSARY}></BadgeItem>;
+            BadgeImg = <BadgeItem  badgeType={EBadgeTypes.ANNIVERSARY}></BadgeItem>;
         }
         if (this.state.badgeType === "Teammate of the month"){
-            BadgeImg = <BadgeItem status={EBadgeStatus.VOTE_SUCCESSFUL} badgeType={EBadgeTypes.TEAMMATE_MONTH}/>;
+            BadgeImg = <BadgeItem badgeType={EBadgeTypes.TEAMMATE_MONTH}/>;
         }
         if (this.state.badgeType === "Teammate of the year"){
-            BadgeImg = <BadgeItem status={EBadgeStatus.SENT} badgeType={EBadgeTypes.TEAMMATE_YEAR}/>;
+            BadgeImg = <BadgeItem  badgeType={EBadgeTypes.TEAMMATE_YEAR}/>;
         }
         if (this.state.badgeType === "Thank you"){
-            BadgeImg = <BadgeItem status={EBadgeStatus.VOTE_SUCCESSFUL} badgeType={EBadgeTypes.THANK_YOU}/>;
+            BadgeImg = <BadgeItem  badgeType={EBadgeTypes.THANK_YOU}/>;
         }
         if ( this.state.currentCreationStep === EBadgeSteps.SELECT_TYPE) {
             return (
