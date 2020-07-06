@@ -1,5 +1,5 @@
 .collaborators-wrapper{
-display: flex;
+  display: flex;
   flex-wrap: wrap;
 
   h2{
@@ -35,21 +35,11 @@ display: flex;
 }
 .collaborators-list-address{
   font-weight: 400;
+  img{
+    margin-left: 25px;
+  }
 }
-.cancel-btn{
-  display: inline-block;
-  box-sizing: border-box;
-  width:40px;
-  height: 40px;
-  background: #F1F1F1;
-  border-radius: 50%;
-  color:#30313B;
-  padding:10px;
-  margin-left: 27px;
-  text-align: center;
-  cursor: pointer;
 
-}
 
 .collaborators-list-outher{
   display: flex;

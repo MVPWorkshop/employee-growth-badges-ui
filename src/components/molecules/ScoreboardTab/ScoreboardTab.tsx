@@ -1,6 +1,11 @@
 import React from "react";
 import Scoreboard from "../../atoms/Scoreboard/Scoreboard";
 import "./Scoreboard.scss";
+import AnnIcon from  "../../../shared/assets/img/anniversary-icon.svg";
+import PromIcon from "../../../shared/assets/img/promoted-icon.svg";
+import TeamMIcon from "../../../shared/assets/img/teammate-m-icon.svg";
+import TeamYIcon from "../../../shared/assets/img/teammate-y-icon.svg";
+import ThankYou from "../../../shared/assets/img/thankyou-icon.svg";
 
 const ScoreboardTab = () => {
 
@@ -14,7 +19,11 @@ const ScoreboardTab = () => {
                     <div className="badges">Badges:</div>
                 </div>
                 <div className="scoreboard-tab-table-content">
-                    <Scoreboard address={"3PthZ9PWBevkEFf9ejRbd7JQuXazV3XWSt"} number={1} images={['https://www.matrixcomputers.in.rs/wp-content/uploads/2020/02/our-service-icon-png-our-services-icon-11562927206xbiiaqynhu-e1581697216138.png','https://www.matrixcomputers.in.rs/wp-content/uploads/2020/02/our-service-icon-png-our-services-icon-11562927206xbiiaqynhu-e1581697216138.png']}/>
+                    <Scoreboard address={"3PthZ9PWBevkEFf9ejRbd7JQuXazV3XWSt"} number={1} images={[AnnIcon,PromIcon,
+                        TeamMIcon,TeamYIcon,ThankYou]}/>
+                    <Scoreboard address={"3PthZ9PWBevkEFf9ejRbd7JQuXazV3XWSt"} number={2} images={[AnnIcon,PromIcon,
+                        TeamMIcon]}/>
+                    <Scoreboard address={"3PthZ9PWBevkEFf9ejRbd7JQuXazV3XWSt"} number={3} images={[AnnIcon, TeamMIcon]}/>
                 </div>
             </div>
         </div>

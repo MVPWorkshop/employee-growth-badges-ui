@@ -10,7 +10,7 @@ const badgeItem: FC<IBadgeItemProps> = (props) => {
             <div className="badge-item--wrapper">
             {/*<div className="badge-item"></div>*/}
                 <img src={badgeImageByType[props.badgeType]} />
-                <span>Pending..</span>
+                <span>Pending</span>
             </div>
         )
     }
@@ -19,7 +19,7 @@ const badgeItem: FC<IBadgeItemProps> = (props) => {
             <div className="badge-item--wrapper">
                 {/*<div className="badge-item"></div>*/}
                 <img src={badgeImageByType[props.badgeType]} />
-                <span>Voting...</span>
+                <span className="vote">Vote</span>
             </div>
         )
     }
@@ -28,7 +28,7 @@ const badgeItem: FC<IBadgeItemProps> = (props) => {
             <div className="badge-item--wrapper">
                 {/*<div className="badge-item"></div>*/}
                 <img src={badgeImageByType[props.badgeType]} />
-                <span>Sent...</span>
+                <span>Sent</span>
 
             </div>
         )

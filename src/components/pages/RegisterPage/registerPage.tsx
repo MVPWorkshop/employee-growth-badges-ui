@@ -31,7 +31,7 @@ class RegisterPage extends Component{
         if ( this.state.currentStep === ERegisterSteps.CONNECT_METAMASK){
             return(
                 <div className="bg-transparent d-flex flex-column justify-content-center vh-100">
-                    <div className="metamask-window"></div>
+                    {/*<div className="metamask-window"></div>*/}
                     <div className="progressbar-wrapper">
                         <ProgressBar variant="warning" now={33} />
                     </div>
