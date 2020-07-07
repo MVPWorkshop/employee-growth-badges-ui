@@ -13,7 +13,7 @@ const SelectTag: FC<ISelectTagProps> = (props) => {
                 <Form.Control onChange={onChangeHandler} as="select" custom value={props.value}>
                     {props.options.map(option=>{
                        return(
-                           <option>{option}</option>
+                           <option key={props.value}>{option}</option>
                        )
                     })}
                 </Form.Control>
