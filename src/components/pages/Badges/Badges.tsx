@@ -3,7 +3,7 @@ import './Badges.scss';
 import NavigationBar from '../../molecules/NavigationBar/NavigationBar'
 import MetamaskBar from "../../atoms/MetamaskBar/MetamaskBar";
 import BadgeItem from "../../atoms/badgeItem/badgeItem";
-import {EBadgeStatus, EBadgeTypes} from "../../atoms/badgeItem/badgeItem.types";
+import {EBadgeStatus, EBadgeType} from "../../atoms/badgeItem/badgeItem.types";
 
 class Badges extends Component{
     render() {
@@ -26,10 +26,10 @@ class Badges extends Component{
               <div className="fake-badges">
                   <h2>My badges</h2>
                   <div className="badges-wrapper">
-                      <BadgeItem  badgeType={EBadgeTypes.ANNIVERSARY}/>
-                      <BadgeItem  badgeType={EBadgeTypes.PROMOTED}/>
-                      <BadgeItem  badgeType={EBadgeTypes.TEAMMATE_MONTH}/>
-                      <BadgeItem  badgeType={EBadgeTypes.TEAMMATE_YEAR
+                      <BadgeItem  badgeType={EBadgeType.ANNIVERSARY}/>
+                      <BadgeItem  badgeType={EBadgeType.PROMOTED}/>
+                      <BadgeItem  badgeType={EBadgeType.TEAMMATE_MONTH}/>
+                      <BadgeItem  badgeType={EBadgeType.TEAMMATE_YEAR
                       }/>
                   </div>
               </div>

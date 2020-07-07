@@ -5,7 +5,7 @@ export enum EBadgeStatus {
     VOTE_SUCCESSFUL = 'VOTE_SUCCESSFUL',
 
 }
-export enum EBadgeTypes {
+export enum EBadgeType {
     ANNIVERSARY = "ANNIVERSARY",
     PROMOTED = "PROMOTED",
     TEAMMATE_MONTH = "TEAMMATE_MONTH",
@@ -15,5 +15,5 @@ export enum EBadgeTypes {
 
 export interface IBadgeItemProps {
     status?:EBadgeStatus;
-    badgeType: EBadgeTypes;
+    badgeType: EBadgeType;
 }

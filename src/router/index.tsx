@@ -8,6 +8,7 @@ import OrganizationPage from "../components/pages/OrganizationPage/organizationP
 import CreateOrganization from "../components/pages/CreateOrganization/CreateOrganization";
 import CreateCollaborator from "../components/pages/CreateCollaborator/CreateCollaborator";
 import CreateBadge from "../components/pages/CreateBadge/CreateBadge";
+import PrivateRoute from './private.route';
 
 
 const AppRouter = () => (
@@ -15,11 +16,11 @@ const AppRouter = () => (
     <Route path='/' exact={true} component={ExampleHomePage}/>
     <Route path='/welcome' exact={true} component={WelcomePage}/>
     <Route path='/register' exact={true} component={RegisterPage}/>
-    <Route path='/badges' exact={true} component={Badges}/>
-    <Route path='/organization' exact={true} component={OrganizationPage}/>
-    <Route path='/create-organization' exact={true} component={CreateOrganization}/>
-    <Route path='/create-collaborator' exact={true} component={CreateCollaborator}/>
-    <Route path='/create-badge' exact={true} component={CreateBadge}/>
+    <PrivateRoute path='/badges' exact={true} component={Badges}/>
+    <PrivateRoute path='/organization' exact={true} component={OrganizationPage}/>
+    <PrivateRoute path='/create-organization' exact={true} component={CreateOrganization}/>
+    <PrivateRoute path='/create-collaborator' exact={true} component={CreateCollaborator}/>
+    <PrivateRoute path='/create-badge' exact={true} component={CreateBadge}/>
     <Redirect to={'/not-found'}/>
   </Switch>
 );

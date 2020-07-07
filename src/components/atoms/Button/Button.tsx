@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Button as BTButton } from 'react-bootstrap';
 import { IButtonProps } from './button.types';
 import styles from './button.module.scss';
 
@@ -18,14 +19,14 @@ const Button: FC<IButtonProps> = (props) => {
   ].join(' ');
 
   return (
-    <button
+    <BTButton
       className={btnClassName}
       onClick={onClick}
       disabled={disabled}
       {...other}
     >
       {children}
-    </button>
+    </BTButton>
   )
 };
 

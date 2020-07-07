@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../../atoms/Button/button';
+import Button from '../../atoms/Button/Button';
 import TextInput from '../../atoms/TextInput/TextInput';
 import Dropdown from '../../molecules/Dropdown/Dropdown';
 import SelectTag from '../../atoms/SelectTag/SelectTag'

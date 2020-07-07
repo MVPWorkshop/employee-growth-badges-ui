@@ -1,8 +1,7 @@
 import React from 'react';
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonProps } from 'react-bootstrap';
 
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps extends ButtonProps {
   className?: string
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  disabled?: boolean
 }

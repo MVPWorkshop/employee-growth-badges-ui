@@ -19,21 +19,7 @@ html, body, #root {
     margin-left: 20px;
   }
 }
-.btn{
-  font-family: 'Rubik',sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  padding: 21px 42px;
-  &:focus{
-    box-shadow: none;
-  }
-}
+
 .app-title{
   //margin-top: 50px;
   //margin-bottom: 40px;

@@ -4,7 +4,7 @@ import LeftABack from '../../../shared/assets/img/left-arrow.svg';
 import Arrow from '../../../shared/assets/img/arrow.svg';
 import { ProgressBar } from 'react-bootstrap';
 import SelectTag from '../../atoms/SelectTag/SelectTag';
-import { EBadgeTypes } from '../../atoms/badgeItem/badgeItem.types';
+import { EBadgeType } from '../../atoms/badgeItem/badgeItem.types';
 import BadgeItem from '../../atoms/badgeItem/badgeItem';
 import TextInput from '../../atoms/TextInput/TextInput';
 import './CreateBadge.scss';
@@ -20,7 +20,7 @@ class CreateBadge extends Component{
 
     state={
         currentCreationStep: allCreatingSteps[0],
-        badgeType:EBadgeTypes.PROMOTED,
+        badgeType:EBadgeType.PROMOTED,
         Address:'',
         Note:''
     }
@@ -75,7 +75,7 @@ class CreateBadge extends Component{
                        label={''}
                        value={this.state['badgeType']}
                        name={'badgeType'}
-                       options={[EBadgeTypes.PROMOTED.charAt(0).toUpperCase() + EBadgeTypes.PROMOTED.slice(1).toLowerCase(),EBadgeTypes.ANNIVERSARY.charAt(0).toUpperCase() + EBadgeTypes.ANNIVERSARY.slice(1).toLowerCase(),EBadgeTypes.TEAMMATE_MONTH.charAt(0).toUpperCase() + EBadgeTypes.TEAMMATE_MONTH.slice(1).toLowerCase(),EBadgeTypes.TEAMMATE_YEAR.charAt(0).toUpperCase() + EBadgeTypes.TEAMMATE_YEAR.slice(1).toLowerCase(),EBadgeTypes.THANK_YOU.charAt(0).toUpperCase() + EBadgeTypes.THANK_YOU.slice(1).toLowerCase()]}
+                       options={[EBadgeType.PROMOTED.charAt(0).toUpperCase() + EBadgeType.PROMOTED.slice(1).toLowerCase(),EBadgeType.ANNIVERSARY.charAt(0).toUpperCase() + EBadgeType.ANNIVERSARY.slice(1).toLowerCase(),EBadgeType.TEAMMATE_MONTH.charAt(0).toUpperCase() + EBadgeType.TEAMMATE_MONTH.slice(1).toLowerCase(),EBadgeType.TEAMMATE_YEAR.charAt(0).toUpperCase() + EBadgeType.TEAMMATE_YEAR.slice(1).toLowerCase(),EBadgeType.THANK_YOU.charAt(0).toUpperCase() + EBadgeType.THANK_YOU.slice(1).toLowerCase()]}
                        onChange={this.onChangeHandler}
                      />
                  </Fragment>

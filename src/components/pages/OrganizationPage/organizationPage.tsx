@@ -7,7 +7,7 @@ import Tabs from 'react-bootstrap/Tabs'
 import {Col, Nav, Row,Tab} from "react-bootstrap";
 import ScoreboardTab from "../../molecules/ScoreboardTab/ScoreboardTab";
 import Collaborators from "../../molecules/Collaborators/Collaborators";
-import {EBadgeTypes,EBadgeStatus} from "../../atoms/badgeItem/badgeItem.types";
+import {EBadgeType,EBadgeStatus} from "../../atoms/badgeItem/badgeItem.types";
 
 
 
@@ -52,12 +52,12 @@ class OrganizationPage extends Component{
                                     <div className="fake-badges">
                                         <h2>Organization badges</h2>
                                         <div className="badges-wrapper">
-                                            <BadgeItem status={EBadgeStatus.PENDING} badgeType={EBadgeTypes.ANNIVERSARY}/>
-                                            <BadgeItem status={EBadgeStatus.VOTING} badgeType={EBadgeTypes.PROMOTED}/>
-                                            <BadgeItem status={EBadgeStatus.VOTE_SUCCESSFUL} badgeType={EBadgeTypes.TEAMMATE_MONTH}/>
-                                            <BadgeItem status={EBadgeStatus.SENT} badgeType={EBadgeTypes.TEAMMATE_YEAR
+                                            <BadgeItem status={EBadgeStatus.PENDING} badgeType={EBadgeType.ANNIVERSARY}/>
+                                            <BadgeItem status={EBadgeStatus.VOTING} badgeType={EBadgeType.PROMOTED}/>
+                                            <BadgeItem status={EBadgeStatus.VOTE_SUCCESSFUL} badgeType={EBadgeType.TEAMMATE_MONTH}/>
+                                            <BadgeItem status={EBadgeStatus.SENT} badgeType={EBadgeType.TEAMMATE_YEAR
                                             }/>
-                                            <BadgeItem status={EBadgeStatus.VOTE_SUCCESSFUL} badgeType={EBadgeTypes.THANK_YOU
+                                            <BadgeItem status={EBadgeStatus.VOTE_SUCCESSFUL} badgeType={EBadgeType.THANK_YOU
                                             }/>
                                         </div>
                                     </div>
