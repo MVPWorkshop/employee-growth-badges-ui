@@ -46,13 +46,13 @@ const ScoreboardTab: FC<IScoreboardProps> = (props) => {
               <tbody>
               {scoreboard.map((score, index) => {
                 return (
-                  <tr className='scoreboard-row'>
+                  <tr className='scoreboard-row' key={index}>
                     <td><div className='scoreboard-no'>{index + 1}</div></td>
                     <td>{score.address}</td>
                     <td>
                       {score.badges.map((badge) => {
                         return (
-                          <img src={badgeRepresentationImageByType[badge.badge_type]}/>
+                          <img key={badge.id} src={badgeRepresentationImageByType[badge.badge_type]}/>
                         )
                       })}
                     </td>
