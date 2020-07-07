@@ -5,7 +5,7 @@ import BadgeItem from '../../atoms/badgeItem/badgeItem';
 import { IWithPrivateRouteProps } from '../../../router/route.types';
 import BadgeService from '../../../services/badge/badge.service';
 import { IBadgesPageState } from './badges.type';
-import './Badges.scss';
+import './badges.scss';
 
 class Badges extends Component<IWithPrivateRouteProps, IBadgesPageState> {
 
