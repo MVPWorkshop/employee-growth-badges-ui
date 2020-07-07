@@ -92,7 +92,7 @@ class OrganizationPage extends Component<IOrganizationPageProps, IOrganizationPa
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second" unmountOnExit={true}>
-                    <ScoreboardTab/>
+                    <ScoreboardTab organizationId={this.organizationId}/>
                   </Tab.Pane>
 
                   <Tab.Pane eventKey="third" unmountOnExit={true}>
