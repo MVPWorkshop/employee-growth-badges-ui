@@ -7,4 +7,5 @@ export interface INavigationBarProps {
     label: string,
     href: string
   }
+  organizationId?: string;
 }

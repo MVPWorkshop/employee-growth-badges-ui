@@ -6,12 +6,14 @@ import { Dropdown as BootstrapDropdown } from 'react-bootstrap';
 import './navigationBar.scss';
 import { Link, useHistory } from 'react-router-dom';
 import AuthService from '../../../services/auth/auth.service';
+import OrganizationUtil from '../../../shared/utils/organization.util';
 
 const NavigationBar: FC<INavigationBarProps> = (props) => {
   const {
     user,
     navigationButton,
-    title
+    title,
+    organizationId
   } = props;
 
   const history = useHistory();
@@ -25,19 +27,23 @@ const NavigationBar: FC<INavigationBarProps> = (props) => {
     }
   };
 
+  const isPartOfOrganization = organizationId && OrganizationUtil.isPartOfOrganization(user.organizations, organizationId);
+
   return (
     <div className='app-navbar'>
       <span>{title}</span>
 
+      {isPartOfOrganization &&
       <Link to={navigationButton.href} className='unlink'>
         <Button
           variant='dark'
           size='lg'
           className="rounded-pill app-btn"
         >
-        {navigationButton.label}
+          {navigationButton.label}
         </Button>
       </Link>
+      }
       <Link to={'/badges'}>
         <img src={UserIcon}/>
       </Link>

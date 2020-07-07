@@ -55,6 +55,7 @@ class OrganizationPage extends Component<IOrganizationPageProps, IOrganizationPa
             href: '/create-badge'
           }}
           user={this.props.user}
+          organizationId={this.organizationId}
         />
         <AddressBar address={user.address}/>
 

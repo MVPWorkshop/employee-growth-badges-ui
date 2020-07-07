@@ -6,6 +6,7 @@ import { ICollaboratorsProps } from './collaborators.type';
 import { ICollaboratorResponse } from '../../../services/collaborators/collaborators.types';
 import { Link } from 'react-router-dom';
 import Button from '../../atoms/Button/Button';
+import OrganizationUtil from '../../../shared/utils/organization.util';
 
 const Collaborators: FC<ICollaboratorsProps> = (props) => {
   const [collaborators, setCollaborators] = useState<ICollaboratorResponse[]>([]);
@@ -39,6 +40,8 @@ const Collaborators: FC<ICollaboratorsProps> = (props) => {
     }
   };
 
+  const isPartOfOrganization = OrganizationUtil.isPartOfOrganization(props.user.organizations, props.organizationId);
+
   return (
     <div className="collaborators-wrapper">
       <div className="collaborators-list-wrapper">
@@ -50,7 +53,7 @@ const Collaborators: FC<ICollaboratorsProps> = (props) => {
                 <div className="collaborators-list-title">Address:</div>
                 <div className="collaborators-list-address">
                   <span>{collaborator.address.address}</span>
-                  {collaborator.address.address !== props.user.address &&
+                  {(collaborator.address.address !== props.user.address && isPartOfOrganization) &&
                     <img
                       src={CancelBtn}
                       alt="Cancel Icon"
@@ -61,17 +64,20 @@ const Collaborators: FC<ICollaboratorsProps> = (props) => {
                 </div>
               </div>
             ))}
-            <div className="collaborators-btn-wrapper">
-              <Link to={`/organizations/${props.organizationId}/add-collaborator`} className='unlink'>
-                <Button
-                  variant='dark'
-                  size='lg'
-                  className='rounded-pill'
-                >
-                  + ADD COLLABORATORS
-                </Button>
-              </Link>
-            </div>
+
+            {isPartOfOrganization &&
+              <div className="collaborators-btn-wrapper">
+                <Link to={`/organizations/${props.organizationId}/add-collaborator`} className='unlink'>
+                  <Button
+                    variant='dark'
+                    size='lg'
+                    className='rounded-pill'
+                  >
+                    + ADD COLLABORATORS
+                  </Button>
+                </Link>
+              </div>
+            }
           </div>
         }
       </div>
