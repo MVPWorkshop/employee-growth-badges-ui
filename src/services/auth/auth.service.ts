@@ -38,6 +38,14 @@ class AuthService {
     }
   }
 
+  public static async logout() {
+    try {
+      await axiosInstance.post('/logout');
+    } catch (error) {
+      throw error;
+    }
+  }
+
   public static async register(username?: string, email?: string) {
     try {
       const walletService = new WalletService();

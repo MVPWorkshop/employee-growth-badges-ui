@@ -20,7 +20,6 @@
   .dropdown .btn.navigation-dropdown-toggle {
     background: transparent;
     border: none;
-    padding: 0px;
 
     &:focus {
       box-shadow: none;
@@ -60,6 +59,15 @@
 
       &:active {
         background-color: #f8f9fa;
+      }
+
+      &.logout-button {
+        font-weight: normal;
+        display: inline-flex;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 16px;
+        justify-content: flex-start;;
       }
     }
   }

@@ -4,7 +4,8 @@ import { INavigationBarProps } from './navigationbar.types';
 import Button from '../../atoms/Button/Button';
 import { Dropdown as BootstrapDropdown } from 'react-bootstrap';
 import './navigationBar.scss';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import AuthService from '../../../services/auth/auth.service';
 
 const NavigationBar: FC<INavigationBarProps> = (props) => {
   const {
@@ -12,6 +13,17 @@ const NavigationBar: FC<INavigationBarProps> = (props) => {
     navigationButton,
     title
   } = props;
+
+  const history = useHistory();
+
+  const logout = async () => {
+    try {
+      await AuthService.logout();
+      history.replace('/welcome');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className='app-navbar'>
@@ -76,6 +88,17 @@ const NavigationBar: FC<INavigationBarProps> = (props) => {
           <div className="dropdown-divider"></div>
           <div className='menu-option mb-0'>
             <Link className="dropdown-item" to="/create-organization">+ Add new organization</Link>
+          </div>
+          <div className="dropdown-divider"></div>
+          <div className='menu-option mb-0'>
+            <Button
+              className="dropdown-item logout-button"
+              variant='dark'
+              uppercase={false}
+              onClick={logout}
+            >
+              Logout
+            </Button>
           </div>
         </BootstrapDropdown.Menu>
       </BootstrapDropdown>

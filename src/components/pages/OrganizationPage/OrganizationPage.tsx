@@ -86,7 +86,7 @@ class OrganizationPage extends Component<IOrganizationPageProps, IOrganizationPa
                             <BadgeItem status={badge.status} badgeType={badge.badge_type}/>
                           ))}
                         </div>
-                        : <h2>Zero badges in organization</h2>
+                        : <div className='mt-4'><p>No badges here...</p></div>
                       }
                     </div>
                   </Tab.Pane>
