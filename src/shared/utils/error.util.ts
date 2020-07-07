@@ -54,3 +54,9 @@ export class Web3UserDeclinedSigning extends BaseError {
     super(EErrorTypes.WEB3_USER_DECLINED_SIGNING);
   }
 }
+
+export class EmployeeRecognitionAbiInvalid extends BaseError {
+  constructor() {
+    super(EErrorTypes.EMPLOYEE_RECOGNITION_ABI_INVALID);
+  }
+}
