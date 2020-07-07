@@ -6,16 +6,15 @@ import BadgeItem from '../../atoms/badgeItem/badgeItem';
 import { Col, Container, Nav, Row, Tab } from 'react-bootstrap';
 import ScoreboardTab from '../../molecules/ScoreboardTab/ScoreboardTab';
 import Collaborators from '../../molecules/Collaborators/Collaborators';
-import { IWithPrivateRouteProps } from '../../../router/route.types';
 import OrganizationService from '../../../services/organization/organization.service';
-import { IOrganizationPageState } from './organizationPage.types';
+import { IOrganizationPageProps, IOrganizationPageState } from './organizationPage.types';
 import BadgeService from '../../../services/badge/badge.service';
 
-class OrganizationPage extends Component<IWithPrivateRouteProps, IOrganizationPageState> {
+class OrganizationPage extends Component<IOrganizationPageProps, IOrganizationPageState> {
 
   organizationId = this.props.match.params.id;
 
-  constructor(props: IWithPrivateRouteProps) {
+  constructor(props: IOrganizationPageProps) {
     super(props);
 
     this.state = {
@@ -96,7 +95,10 @@ class OrganizationPage extends Component<IWithPrivateRouteProps, IOrganizationPa
                   </Tab.Pane>
 
                   <Tab.Pane eventKey="third" unmountOnExit={true}>
-                    <Collaborators organizationId={this.organizationId}/>
+                    <Collaborators
+                      organizationId={this.organizationId}
+                      user={user}
+                    />
                   </Tab.Pane>
                 </Tab.Content>
               </Col>

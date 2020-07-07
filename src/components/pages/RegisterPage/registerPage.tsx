@@ -8,6 +8,7 @@ import Button from '../../atoms/Button/Button';
 import AuthService from '../../../services/auth/auth.service';
 import { RouteChildrenProps } from 'react-router';
 import { Web3AccessRejected, Web3UserDeclinedSigning } from '../../../shared/utils/error.util';
+import { toast } from 'react-toastify';
 
 const allSteps = [
   // ERegisterSteps.CONNECT_METAMASK,
@@ -55,8 +56,7 @@ class RegisterPage extends Component<RouteChildrenProps> {
 
     } catch (error) {
       if (error instanceof Web3AccessRejected || error instanceof Web3UserDeclinedSigning) {
-        console.log(error.message)
-        // TODO: dispatch toastr
+        toast.error(error.message);
       }
       console.log(error)
     }
@@ -104,7 +104,6 @@ class RegisterPage extends Component<RouteChildrenProps> {
             <h1 className="text-center app-title mw-469">Your nickname</h1>
             <TextInput
               name={'username'}
-              label={''}
               value={this.state.username}
               placeholder={'Enter your nickname'}
               onChange={this.onChangeHandler}

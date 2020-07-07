@@ -19,7 +19,7 @@ const AppRouter = () => (
     <PrivateRoute path='/badges' exact={true} component={Badges}/>
     <PrivateRoute path='/organizations/:id' exact={true} component={OrganizationPage}/>
     <PrivateRoute path='/create-organization' exact={true} component={CreateOrganization}/>
-    <PrivateRoute path='/create-collaborator' exact={true} component={CreateCollaborator}/>
+    <PrivateRoute path='/organizations/:id/add-collaborator' exact={true} component={CreateCollaborator}/>
     <PrivateRoute path='/create-badge' exact={true} component={CreateBadge}/>
     <Redirect to={'/not-found'}/>
   </Switch>

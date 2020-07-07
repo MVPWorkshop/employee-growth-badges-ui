@@ -41,7 +41,6 @@ export class Web3NoAccountFound extends BaseError {
   constructor() {
     super(EErrorTypes.WEB3_NO_ACCOUNT_FOUND)
   }
-
 }
 
 export class EmployeeRecognitionAbiInvalid extends BaseError {
@@ -58,5 +57,11 @@ export class Web3NoProviderFound extends BaseError {
 export class Web3UserDeclinedSigning extends BaseError {
   constructor() {
     super(EErrorTypes.WEB3_USER_DECLINED_SIGNING);
+  }
+}
+
+export class APIError extends BaseError {
+  constructor(message?: string) {
+    super(EErrorTypes.API_ERROR, message);
   }
 }

@@ -5,6 +5,7 @@ import Button from '../../atoms/Button/Button';
 import AuthService from '../../../services/auth/auth.service';
 import { IWelcomePageProps } from './welcomePage.types';
 import { Web3AccessRejected, Web3UserDeclinedSigning } from '../../../shared/utils/error.util';
+import { toast } from 'react-toastify';
 
 class WelcomePage extends Component<IWelcomePageProps> {
   public start = async () => {
@@ -13,8 +14,7 @@ class WelcomePage extends Component<IWelcomePageProps> {
       this.props.history.replace('/badges')
     } catch (error) {
       if (error instanceof Web3AccessRejected || error instanceof Web3UserDeclinedSigning) {
-        console.log(error.message)
-        // TODO: dispatch toastr
+        toast.error(error.message);
       } else {
         this.props.history.push('/register')
       }

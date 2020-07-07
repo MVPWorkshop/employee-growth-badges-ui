@@ -4,6 +4,8 @@ import CancelBtn from '../../../shared/assets/img/cancel-btn.svg';
 import CollaboratorsService from '../../../services/collaborators/collaborators.service';
 import { ICollaboratorsProps } from './Collaborators.type';
 import { ICollaboratorResponse } from '../../../services/collaborators/collaborators.types';
+import { Link } from 'react-router-dom';
+import Button from '../../atoms/Button/Button';
 
 const Collaborators: FC<ICollaboratorsProps> = (props) => {
   const [collaborators, setCollaborators] = useState<ICollaboratorResponse[]>([]);
@@ -48,17 +50,27 @@ const Collaborators: FC<ICollaboratorsProps> = (props) => {
                 <div className="collaborators-list-title">Address:</div>
                 <div className="collaborators-list-address">
                   <span>{collaborator.address.address}</span>
-                  <img
-                    src={CancelBtn}
-                    alt="Cancel Icon"
-                    className='cursor-pointer'
-                    onClick={() => revokeCollaborator(collaborator.address_id)}
-                  />
+                  {collaborator.address.address !== props.user.address &&
+                    <img
+                      src={CancelBtn}
+                      alt="Cancel Icon"
+                      className='cursor-pointer'
+                      onClick={() => revokeCollaborator(collaborator.address_id)}
+                    />
+                  }
                 </div>
               </div>
             ))}
             <div className="collaborators-btn-wrapper">
-              <button className="btn btn-dark btn-lg  rounded-pill" role="button">+ ADD COLLABORATORS</button>
+              <Link to={`/organizations/${props.organizationId}/add-collaborator`} className='unlink'>
+                <Button
+                  variant='dark'
+                  size='lg'
+                  className='rounded-pill'
+                >
+                  + ADD COLLABORATORS
+                </Button>
+              </Link>
             </div>
           </div>
         }

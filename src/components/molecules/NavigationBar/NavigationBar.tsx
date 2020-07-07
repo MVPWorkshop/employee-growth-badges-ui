@@ -26,7 +26,9 @@ const NavigationBar: FC<INavigationBarProps> = (props) => {
         {navigationButton.label}
         </Button>
       </Link>
-      <img src={UserIcon}/>
+      <Link to={'/badges'}>
+        <img src={UserIcon}/>
+      </Link>
 
       <BootstrapDropdown>
         <BootstrapDropdown.Toggle id="dropdown-basic" className='navigation-dropdown-toggle'/>
@@ -53,19 +55,22 @@ const NavigationBar: FC<INavigationBarProps> = (props) => {
             </div>
           }
 
-          {(user.organizations && user.organizations.length) &&
+          {(user.organizations && user.organizations.length) ?
             <div className='menu-option'>
               <BootstrapDropdown.Header>
                 Organization name
               </BootstrapDropdown.Header>
               {user.organizations.map((org) => {
                 return (
-                  <BootstrapDropdown.Item>
-                    {org.name}
-                  </BootstrapDropdown.Item>
+                  <Link to={`/organizations/${org.id}`} key={org.id} className='unlink'>
+                    <BootstrapDropdown.Item as={'div'}>
+                      {org.name}
+                    </BootstrapDropdown.Item>
+                  </Link>
                 )
               })}
             </div>
+            : null
           }
 
           <div className="dropdown-divider"></div>

@@ -9,5 +9,6 @@ export const errorMessages: DynamicObject<string, EErrorTypes> = {
   [EErrorTypes.WEB3_NOT_INITIALISED]: 'Web3 hasn\'t been initialised',
   [EErrorTypes.WEB3_NO_ACCOUNT_FOUND]: 'No account found in the users wallet',
   [EErrorTypes.WEB3_USER_DECLINED_SIGNING]: 'Signing canceled',
-  [EErrorTypes.EMPLOYEE_RECOGNITION_ABI_INVALID]: 'Provided abi for employee recognition contract is invalid'
+  [EErrorTypes.EMPLOYEE_RECOGNITION_ABI_INVALID]: 'Provided abi for employee recognition contract is invalid',
+  [EErrorTypes.API_ERROR]: 'Something went wrong'
 };
