@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { IWalletBarProps } from './AddressBar.types';
+import { IWalletBarProps } from './addressBar.types';
 import CommonUtil from '../../../shared/utils/common.util';
 import Button from '../Button/Button';
-import './AddressBar.scss';
+import './addressBar.scss';
 
 const AddressBar: FC<IWalletBarProps> = (props) => {
   const copyAddress = () => {

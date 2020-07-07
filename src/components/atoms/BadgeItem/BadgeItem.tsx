@@ -7,7 +7,7 @@ import Successful from "../../../shared/assets/img/successful.svg"
 import Sent from "../../../shared/assets/img/sent.svg"
 import Vote from "../../../shared/assets/img/vote.svg"
 
-const badgeItem: FC<IBadgeItemProps> = (props) => {
+const BadgeItem: FC<IBadgeItemProps> = (props) => {
     let status;
     if(props.status === EBadgeStatus.PENDING){
         // status = <span>Pending</span>;
@@ -33,4 +33,4 @@ const badgeItem: FC<IBadgeItemProps> = (props) => {
         )
 }
 
-export default badgeItem;
+export default BadgeItem;

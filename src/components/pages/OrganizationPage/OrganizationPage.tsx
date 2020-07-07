@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './organizationPage.scss';
 import NavigationBar from '../../molecules/NavigationBar/NavigationBar';
 import AddressBar from '../../atoms/AddressBar/AddressBar';
-import BadgeItem from '../../atoms/badgeItem/badgeItem';
+import BadgeItem from '../../atoms/BadgeItem/BadgeItem';
 import { Col, Container, Nav, Row, Tab } from 'react-bootstrap';
 import ScoreboardTab from '../../molecules/ScoreboardTab/ScoreboardTab';
 import Collaborators from '../../molecules/Collaborators/Collaborators';

@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import NavigationBar from '../../molecules/NavigationBar/NavigationBar';
 import AddressBar from '../../atoms/AddressBar/AddressBar';
-import BadgeItem from '../../atoms/badgeItem/badgeItem';
+import BadgeItem from '../../atoms/BadgeItem/BadgeItem';
 import { IWithPrivateRouteProps } from '../../../router/route.types';
 import BadgeService from '../../../services/badge/badge.service';
-import { IBadgesPageState } from './badges.type';
-import './badges.scss';
+import { IBadgesPageState } from './badgesPage.type';
+import './badgesPage.scss';
 
-class Badges extends Component<IWithPrivateRouteProps, IBadgesPageState> {
+class BadgesPage extends Component<IWithPrivateRouteProps, IBadgesPageState> {
 
   state: IBadgesPageState = {
     badges: []
@@ -59,4 +59,4 @@ class Badges extends Component<IWithPrivateRouteProps, IBadgesPageState> {
   }
 }
 
-export default Badges;
+export default BadgesPage;

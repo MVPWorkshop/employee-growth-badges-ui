@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import TextInput from '../../atoms/TextInput/TextInput';
-import './createOrganization.scss';
+import './createOrganizationPage.scss';
 import Button from '../../atoms/Button/Button';
 import OrganizationService from '../../../services/organization/organization.service';
 import { IWithPrivateRouteProps } from '../../../router/route.types';
 
-class CreateOrganization extends Component<IWithPrivateRouteProps> {
+class CreateOrganizationPage extends Component<IWithPrivateRouteProps> {
   state = {
     organizationName: '',
   };
@@ -52,4 +52,4 @@ class CreateOrganization extends Component<IWithPrivateRouteProps> {
 }
 
 
-export default CreateOrganization;
+export default CreateOrganizationPage;

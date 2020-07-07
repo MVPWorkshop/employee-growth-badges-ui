@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import TextInput from '../../atoms/TextInput/TextInput';
-import './createCollaborator.scss';
+import './createCollaboratorPage.scss';
 import Button from '../../atoms/Button/Button';
 import CollaboratorsService from '../../../services/collaborators/collaborators.service';
 import { IWithPrivateRouteProps } from '../../../router/route.types';
 import { toast } from 'react-toastify';
 import { APIError } from '../../../shared/utils/error.util';
 
-class CreateCollaborator extends Component<IWithPrivateRouteProps<{id: string}>> {
+class CreateCollaboratorPage extends Component<IWithPrivateRouteProps<{id: string}>> {
   state = {
     collaboratorAddress: '',
   };
@@ -62,4 +62,4 @@ class CreateCollaborator extends Component<IWithPrivateRouteProps<{id: string}>>
 }
 
 
-export default CreateCollaborator;
+export default CreateCollaboratorPage;

@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
-import './Collaborators.scss';
+import './collaborators.scss';
 import CancelBtn from '../../../shared/assets/img/cancel-btn.svg';
 import CollaboratorsService from '../../../services/collaborators/collaborators.service';
-import { ICollaboratorsProps } from './Collaborators.type';
+import { ICollaboratorsProps } from './collaborators.type';
 import { ICollaboratorResponse } from '../../../services/collaborators/collaborators.types';
 import { Link } from 'react-router-dom';
 import Button from '../../atoms/Button/Button';

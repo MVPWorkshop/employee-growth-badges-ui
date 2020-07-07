@@ -1,4 +1,4 @@
-import { EBadgeStatus, EBadgeType } from '../../components/atoms/badgeItem/badgeItem.types';
+import { EBadgeStatus, EBadgeType } from '../../components/atoms/BadgeItem/badgeItem.types';
 
 export interface IBadgeResponse {
   id: string;

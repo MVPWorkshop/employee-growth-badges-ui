@@ -1,4 +1,4 @@
-import {EBadgeType} from "../../components/atoms/badgeItem/badgeItem.types";
+import {EBadgeType} from "../../components/atoms/BadgeItem/badgeItem.types";
 
 export const badgeImageByType = {
     [EBadgeType.ANNIVERSARY]: require('../assets/img/anniversary.svg'),

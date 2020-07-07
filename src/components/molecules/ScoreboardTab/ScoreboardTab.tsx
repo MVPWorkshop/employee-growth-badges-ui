@@ -1,6 +1,6 @@
 import React from 'react';
 import Scoreboard from '../../atoms/Scoreboard/Scoreboard';
-import './Scoreboard.scss';
+import './scoreboard.scss';
 import AnnIcon from '../../../shared/assets/img/anniversary-icon.svg';
 import PromIcon from '../../../shared/assets/img/promoted-icon.svg';
 import TeamMIcon from '../../../shared/assets/img/teammate-m-icon.svg';
