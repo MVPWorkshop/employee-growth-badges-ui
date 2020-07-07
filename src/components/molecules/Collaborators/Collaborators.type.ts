@@ -1,3 +1,3 @@
-export interface ICollaboratorsProps{
-   address:string;
+export interface ICollaboratorsProps {
+   organizationId: string
 }

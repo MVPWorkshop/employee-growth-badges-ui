@@ -3,66 +3,107 @@ import './organizationPage.scss';
 import NavigationBar from '../../molecules/NavigationBar/NavigationBar';
 import AddressBar from '../../atoms/AddressBar/AddressBar';
 import BadgeItem from '../../atoms/badgeItem/badgeItem';
-import Tabs from 'react-bootstrap/Tabs';
-import { Col, Nav, Row, Tab } from 'react-bootstrap';
+import { Col, Container, Nav, Row, Tab } from 'react-bootstrap';
 import ScoreboardTab from '../../molecules/ScoreboardTab/ScoreboardTab';
 import Collaborators from '../../molecules/Collaborators/Collaborators';
-import { EBadgeType, EBadgeStatus } from '../../atoms/badgeItem/badgeItem.types';
 import { IWithPrivateRouteProps } from '../../../router/route.types';
+import OrganizationService from '../../../services/organization/organization.service';
+import { IOrganizationPageState } from './organizationPage.types';
+import BadgeService from '../../../services/badge/badge.service';
 
+class OrganizationPage extends Component<IWithPrivateRouteProps, IOrganizationPageState> {
 
-class OrganizationPage extends Component<IWithPrivateRouteProps> {
+  organizationId = this.props.match.params.id;
+
+  constructor(props: IWithPrivateRouteProps) {
+    super(props);
+
+    this.state = {
+      organization: null,
+      badges: []
+    }
+  }
+  
+  async componentDidMount() {
+
+    try {
+      const organization = await OrganizationService.getOrganization(this.organizationId);
+      const orgBadges = await BadgeService.getBadgeList(this.organizationId);
+
+      this.setState({
+        organization,
+        badges: orgBadges
+      })
+    } catch (error) {
+      
+    }
+  }
+
   render() {
+    const { user } = this.props;
+    const { organization, badges } = this.state;
+
+    if (organization) {
+      return null;
+    }
+
     return (
-
       <div className="organization">
-        <NavigationBar title={'CryptoTrophies'} btnText={'create new badge'} user={this.props.user}/>
-        <AddressBar address={'3PthZ9PWBevkEFf9ejRbd7JQuXazV3XWSt'}/>
+        <NavigationBar
+          title={'CryptoTrophies'}
+          navigationButton={{
+            label: 'create new badge',
+            href: '/create-badge'
+          }}
+          user={this.props.user}
+        />
+        <AddressBar address={user.address}/>
+
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-          <Row>
-            <Col sm={3}>
-              <Nav variant="pills" className="flex-column">
-                <Nav.Item>
-                  <Nav.Link eventKey="first">Organization badges</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="second">Scoreboard</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="third">Collaborators</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Col>
-            <Col sm={9}>
-              <Tab.Content>
-                <Tab.Pane eventKey="first">
-                  <div className="fake-badges">
-                    <h2>Organization badges</h2>
-                    <div className="badges-wrapper">
-                      <BadgeItem status={EBadgeStatus.PENDING} badgeType={EBadgeType.ANNIVERSARY}/>
-                      <BadgeItem status={EBadgeStatus.VOTING} badgeType={EBadgeType.PROMOTED}/>
-                      <BadgeItem status={EBadgeStatus.VOTE_SUCCESSFUL} badgeType={EBadgeType.TEAMMATE_MONTH}/>
-                      <BadgeItem status={EBadgeStatus.SENT} badgeType={EBadgeType.TEAMMATE_YEAR
-                      }/>
-                      <BadgeItem status={EBadgeStatus.VOTE_SUCCESSFUL} badgeType={EBadgeType.THANK_YOU
-                      }/>
+          <Container fluid={true}>
+            <Row>
+              <Col sm={3} className='tabs-column'>
+                <Nav variant="pills" className="flex-column">
+                  <Nav.Item>
+                    <Nav.Link eventKey="first">Organization badges</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="second">Scoreboard</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="third">Collaborators</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Col>
+              <Col sm={9}>
+                <Tab.Content>
+                  <Tab.Pane eventKey="first" unmountOnExit={true}>
+                    <div className="badges-outer">
+                      {/*<h2>{organization?.name} badges</h2>*/}
+
+                      {badges.length > 0 ?
+                        <div className="badges-wrapper">
+                          {badges.map(badge => (
+                            <BadgeItem status={badge.status} badgeType={badge.badge_type}/>
+                          ))}
+                        </div>
+                        : <h2>Zero badges in organization</h2>
+                      }
                     </div>
-                  </div>
-                </Tab.Pane>
-                <Tab.Pane eventKey="second">
-                  <ScoreboardTab/>
-                </Tab.Pane>
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="second" unmountOnExit={true}>
+                    <ScoreboardTab/>
+                  </Tab.Pane>
 
-                <Tab.Pane eventKey="third">
-                  <Collaborators/>
-                </Tab.Pane>
-              </Tab.Content>
-            </Col>
-          </Row>
+                  <Tab.Pane eventKey="third" unmountOnExit={true}>
+                    <Collaborators organizationId={this.organizationId}/>
+                  </Tab.Pane>
+                </Tab.Content>
+              </Col>
+            </Row>
+          </Container>
         </Tab.Container>
-
       </div>
-
     );
   }
 }

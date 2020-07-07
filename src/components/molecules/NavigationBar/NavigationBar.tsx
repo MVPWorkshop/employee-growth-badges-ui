@@ -7,18 +7,21 @@ import './navigationBar.scss';
 
 const NavigationBar: FC<INavigationBarProps> = (props) => {
   const {
-    user
+    user,
+    navigationButton,
+    title
   } = props;
 
   return (
     <div className='app-navbar'>
-      <span>{props.title}</span>
+      <span>{title}</span>
       <Button
         variant='dark'
         size='lg'
         className="rounded-pill app-btn"
+        href={navigationButton.href}
       >
-        {props.btnText}
+        {navigationButton.label}
       </Button>
       <img src={UserIcon}/>
 

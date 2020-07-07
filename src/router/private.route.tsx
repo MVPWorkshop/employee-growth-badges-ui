@@ -33,7 +33,9 @@ class PrivateRoute extends Component<any, IState> {
     if (this.state.user) {
       const Component = this.props.component;
 
-      return <Route render={(props) => (<Component {...props} user={this.state.user}/>)}/>
+      return <Route path={this.props.path} render={(props) => (
+        <Component {...props} user={this.state.user}/>
+      )}/>
     } else {
       return <Redirect to='/welcome' />
     }

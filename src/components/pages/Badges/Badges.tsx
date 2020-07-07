@@ -31,8 +31,11 @@ class Badges extends Component<IWithPrivateRouteProps, IBadgesPageState> {
       <div>
         <NavigationBar
           title={'CryptoTrophies'}
-          btnText={'create new organization'}
           user={user}
+          navigationButton={{
+            label: 'create new organization',
+            href: '/create-organization'
+          }}
         />
         <AddressBar address={user.address}/>
         <div className="badges-outer">

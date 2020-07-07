@@ -17,7 +17,7 @@ const AppRouter = () => (
     <Route path='/welcome' exact={true} component={WelcomePage}/>
     <Route path='/register' exact={true} component={RegisterPage}/>
     <PrivateRoute path='/badges' exact={true} component={Badges}/>
-    <PrivateRoute path='/organization' exact={true} component={OrganizationPage}/>
+    <PrivateRoute path='/organizations/:id' exact={true} component={OrganizationPage}/>
     <PrivateRoute path='/create-organization' exact={true} component={CreateOrganization}/>
     <PrivateRoute path='/create-collaborator' exact={true} component={CreateCollaborator}/>
     <PrivateRoute path='/create-badge' exact={true} component={CreateBadge}/>
