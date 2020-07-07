@@ -1,0 +1,32 @@
+.metamask-bar{
+  background:#DDE0EF;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding:25px 0;
+  span{
+    font-family: 'Rubik',sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 120%;
+    color: #30313B;
+  }
+  button{
+    font-family: 'Rubik',sans-serif;
+    margin-left:20px;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: #C9CDE3 !important;
+    color: #30313B !important;
+    border-color: transparent !important;
+    padding:10px 13px;
+  }
+}

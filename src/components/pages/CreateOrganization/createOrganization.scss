@@ -1,0 +1,29 @@
+.create-organization{
+  a{
+    text-align: center;
+    font-family: 'Rubik',sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #30313B;
+    margin-bottom: 100px;
+
+  }
+  img{
+    margin-right: 25px;
+  }
+  .app-input{
+    input{
+
+      background: #F4F5F9;
+      border: 1px solid #F4F5F9;
+      color: #A8A9B7;
+      &::placeholder {
+        color: #A8A9B7;
+      }
+    }
+  }
+}
