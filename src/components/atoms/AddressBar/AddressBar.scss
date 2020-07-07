@@ -1,0 +1,24 @@
+.address-bar {
+  background: #DDE0EF;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+
+  span {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    color: #30313B;
+  }
+
+  .copy-button {
+    margin-left: 20px;
+    font-size: 14px;
+    background: #C9CDE3;
+    color: #30313B;
+    border-color: transparent;
+    padding: 10px 13px;
+  }
+}

@@ -4,18 +4,13 @@ html, body, #root {
   width: 100%;
 }
 
-
 .app-btn{
-  background: #6B7AFF !important;
-  background-color: #6B7AFF !important;
-  border-color: #6B7AFF !important;
+  background: #6B7AFF;
+  border-color: #6B7AFF;
   display: flex;
   justify-content: center;
-  box-sizing: border-box;
-  &:focus{
-    box-shadow: none;
-  }
-  img{
+
+  img {
     margin-left: 20px;
   }
 }

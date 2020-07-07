@@ -1,9 +1,7 @@
+import { IMeResponse } from '../../../services/auth/auth.types';
+
 export interface INavigationBarProps {
-    title:string;
-    btntext:string;
-    options:{
-        label:string,
-        value:string
-    }[];
-    toggleLabel:string;
+  title: string
+  btnText: string
+  user: IMeResponse
 }

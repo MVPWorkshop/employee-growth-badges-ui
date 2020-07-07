@@ -1,28 +1,22 @@
-.fake-badges{
-  h2{
-    font-family: 'Rubik',sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 36px;
-    line-height: 120%;
-    text-align: center;
-    letter-spacing: -0.01em;
+.badges-outer {
+  h2 {
     color: #30313B;
-    margin-top:70px;
+    margin-top: 70px;
   }
-  .badges-wrapper{
-    display:flex;
+
+  .badges-wrapper {
+    display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    width:70%;
-    padding-top:70px;
+    width: 70%;
+    padding-top: 70px;
     padding-bottom: 150px;
     justify-content: space-between;
 
   }
-  .badge-item{
-    //width:calc(50% - 29px);
-    height:50vh;
+
+  .badge-item {
+    height: 50vh;
     margin: 15px auto;
     background: #F1F1F1;
     border-radius: 30px;

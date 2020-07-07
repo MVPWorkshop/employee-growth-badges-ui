@@ -1,41 +1,59 @@
-import React, {Component} from 'react';
+import React, { Component, Fragment } from 'react';
+import NavigationBar from '../../molecules/NavigationBar/NavigationBar';
+import AddressBar from '../../atoms/AddressBar/AddressBar';
+import BadgeItem from '../../atoms/badgeItem/badgeItem';
+import { IWithPrivateRouteProps } from '../../../router/route.types';
+import BadgeService from '../../../services/badge/badge.service';
+import { IBadgesPageState } from './badges.type';
 import './Badges.scss';
-import NavigationBar from '../../molecules/NavigationBar/NavigationBar'
-import MetamaskBar from "../../atoms/MetamaskBar/MetamaskBar";
-import BadgeItem from "../../atoms/badgeItem/badgeItem";
-import {EBadgeStatus, EBadgeType} from "../../atoms/badgeItem/badgeItem.types";
 
-class Badges extends Component{
-    render() {
-        return (
+class Badges extends Component<IWithPrivateRouteProps, IBadgesPageState> {
 
-            <div>
-              <NavigationBar title={'CryptoTrophies'} btntext={'create new organization'} options={
-                  [
-                      {
-                              label:"My nickname",
-                              value:"Aca"
-                          },
-                          {
-                              label:"My email address",
-                              value:"a@ac.ad"
-                          }
-                          ]
-              } toggleLabel={''}/>
-              <MetamaskBar address={'3PthZ9PWBevkEFf9ejRbd7JQuXazV3XWSt'}/>
-              <div className="fake-badges">
-                  <h2>My badges</h2>
-                  <div className="badges-wrapper">
-                      <BadgeItem  badgeType={EBadgeType.ANNIVERSARY}/>
-                      <BadgeItem  badgeType={EBadgeType.PROMOTED}/>
-                      <BadgeItem  badgeType={EBadgeType.TEAMMATE_MONTH}/>
-                      <BadgeItem  badgeType={EBadgeType.TEAMMATE_YEAR
-                      }/>
-                  </div>
-              </div>
-            </div>
-        );
+  state: IBadgesPageState = {
+    badges: []
+  };
+
+  async componentDidMount() {
+    try {
+      const badges = await BadgeService.getBadgeList();
+      this.setState({
+        badges
+      })
+    } catch (error) {
+      console.log(error)
     }
+  }
+
+  render() {
+    const { user } = this.props;
+
+    return (
+      <div>
+        <NavigationBar
+          title={'CryptoTrophies'}
+          btnText={'create new organization'}
+          user={user}
+        />
+        <AddressBar address={user.address}/>
+        <div className="badges-outer">
+          {this.state.badges.length > 0 ?
+            <Fragment>
+              <h2>My badges</h2>
+              <div className="badges-wrapper">
+                {this.state.badges.map((badge) => (
+                  <BadgeItem key={badge.id} badgeType={badge.badge_type}/>
+                ))}
+              </div>
+            </Fragment>
+            :
+            <div className='mt-3'>
+              <h5 className='text-center'>Currently You don't have any badges</h5>
+            </div>
+          }
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Badges;

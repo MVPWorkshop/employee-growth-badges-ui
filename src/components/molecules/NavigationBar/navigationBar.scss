@@ -1,0 +1,66 @@
+.app-navbar {
+  padding: 40px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  background: #E9EBF5;
+
+  span {
+    flex-grow: 1;
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #30313B;
+  }
+
+  .dropdown .btn.navigation-dropdown-toggle {
+    background: transparent;
+    border: none;
+    padding: 0px;
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      background-color: transparent;
+      border-color: transparent;
+    };
+
+    &:active {
+      box-shadow: none;
+      outline: none;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .dropdown-menu {
+    border-radius: 30px;
+    padding: 40px 0px;
+    border: 1px solid #DDE0EF;
+  }
+
+  .menu-option {
+    margin-bottom: 25px;
+
+    .dropdown-header {
+      text-transform: uppercase;
+      font-size: 16px;
+      color: #A8A9B7;
+      padding: 0px 38px;
+    }
+
+    .dropdown-item {
+      font-size: 18px;
+      color: #30313B;
+      padding: 3px 38px;
+
+      &:active {
+        background-color: #f8f9fa;
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ const Button: FC<IButtonProps> = (props) => {
     children,
     onClick,
     disabled,
+    uppercase,
     ...other
   } = props;
 
@@ -16,6 +17,7 @@ const Button: FC<IButtonProps> = (props) => {
     styles.appButton,
     className,
     disabled ? 'disabledElement' : '',
+    uppercase ? styles.uppercase : '',
   ].join(' ');
 
   return (
@@ -28,6 +30,10 @@ const Button: FC<IButtonProps> = (props) => {
       {children}
     </BTButton>
   )
+};
+
+Button.defaultProps = {
+  uppercase: true
 };
 
 export default Button;
