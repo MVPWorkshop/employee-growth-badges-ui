@@ -1,5 +1,4 @@
 import Web3 from 'web3'
-
 declare global {
   interface Window {
     // Any because different wallets can inject different versions
@@ -7,7 +6,6 @@ declare global {
     ethereum?: any;
   }
 }
-
 export enum ENetworkTypes {
   MAIN = 'main',
   MORDEN = 'morden',
@@ -16,4 +14,7 @@ export enum ENetworkTypes {
   KOVAN = 'kovan',
   GOERLI = 'goerli',
   PRIVATE = 'private'
+}
+export enum EWalletTypes {
+  METAMASK = 'METAMASK'
 }
