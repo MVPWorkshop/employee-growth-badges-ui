@@ -4,6 +4,7 @@ import { INavigationBarProps } from './navigationbar.types';
 import Button from '../../atoms/Button/Button';
 import { Dropdown as BootstrapDropdown } from 'react-bootstrap';
 import './navigationBar.scss';
+import { Link } from 'react-router-dom';
 
 const NavigationBar: FC<INavigationBarProps> = (props) => {
   const {
@@ -15,14 +16,16 @@ const NavigationBar: FC<INavigationBarProps> = (props) => {
   return (
     <div className='app-navbar'>
       <span>{title}</span>
-      <Button
-        variant='dark'
-        size='lg'
-        className="rounded-pill app-btn"
-        href={navigationButton.href}
-      >
+
+      <Link to={navigationButton.href} className='unlink'>
+        <Button
+          variant='dark'
+          size='lg'
+          className="rounded-pill app-btn"
+        >
         {navigationButton.label}
-      </Button>
+        </Button>
+      </Link>
       <img src={UserIcon}/>
 
       <BootstrapDropdown>
@@ -66,7 +69,9 @@ const NavigationBar: FC<INavigationBarProps> = (props) => {
           }
 
           <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="#">+ Add new organization</a>
+          <div className='menu-option mb-0'>
+            <Link className="dropdown-item" to="/create-organization">+ Add new organization</Link>
+          </div>
         </BootstrapDropdown.Menu>
       </BootstrapDropdown>
     </div>

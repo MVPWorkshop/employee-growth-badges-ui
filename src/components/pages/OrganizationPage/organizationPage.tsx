@@ -43,7 +43,7 @@ class OrganizationPage extends Component<IWithPrivateRouteProps, IOrganizationPa
     const { user } = this.props;
     const { organization, badges } = this.state;
 
-    if (organization) {
+    if (!organization) {
       return null;
     }
 
@@ -79,7 +79,7 @@ class OrganizationPage extends Component<IWithPrivateRouteProps, IOrganizationPa
                 <Tab.Content>
                   <Tab.Pane eventKey="first" unmountOnExit={true}>
                     <div className="badges-outer">
-                      {/*<h2>{organization?.name} badges</h2>*/}
+                      <h2>{organization?.name} badges</h2>
 
                       {badges.length > 0 ?
                         <div className="badges-wrapper">

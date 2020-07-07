@@ -11,6 +11,18 @@ class OrganizationService {
       throw error;
     }
   }
+
+  public static async createOrganization(organizationName: string) {
+    try {
+      const response = await axiosInstance.post<IOrganizationResponse>('/organizations', {
+        name: organizationName
+      });
+
+      return response.data
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default OrganizationService;

@@ -1,34 +1,54 @@
-import React, {Component} from "react";
-import TextInput from "../../atoms/TextInput/TextInput";
-import './createOrganization.scss'
-import {Link} from "react-router-dom";
-import LeftBack from "../../../shared/assets/img/left-arrow.svg"
-class CreateOrganization extends Component{
-    state = {
-        Organization:"",
+import React, { Component } from 'react';
+import TextInput from '../../atoms/TextInput/TextInput';
+import './createOrganization.scss';
+import Button from '../../atoms/Button/Button';
+import OrganizationService from '../../../services/organization/organization.service';
+import { IWithPrivateRouteProps } from '../../../router/route.types';
 
-    }
-    onChangeHandler = (value:string, name:string) => {
-        this.setState({
-            [name]:value
-        })
-    }
-    render() {
-        return (
-            <div className="create-organization">
-                <div className="bg-transparent d-flex flex-column justify-content-center vh-100">
-                    <Link to="/"><img src={LeftBack}/> Back</Link>
+class CreateOrganization extends Component<IWithPrivateRouteProps> {
+  state = {
+    organizationName: '',
+  };
 
-                    <h1 className="text-center app-title mw-469">Organization name</h1>
-                    <TextInput name={"Organization"} label={''} value={this.state.Organization} onChange={this.onChangeHandler}
-                               placeholder={"Name your organization"}/>
-                    <button className="btn btn-dark btn-lg mx-auto rounded-pill app-btn" role="button">create new organization
-                    </button>
+  onChangeHandler = (value: string, name: string) => {
+    this.setState({
+      [name]: value
+    });
+  };
 
-                </div>
-            </div>
-        );
+  createOrganization = async () => {
+    try {
+      const organization = await OrganizationService.createOrganization(this.state.organizationName);
+      this.props.history.push(`/organizations/${organization.id}`);
+    } catch (error) {
+      console.log(error)
     }
+  };
+
+  render() {
+    return (
+      <div className="create-organization">
+        <div className="bg-transparent d-flex flex-column justify-content-center vh-100">
+          <h1 className="text-center app-title mw-469">Organization name</h1>
+          <TextInput
+            name={'organizationName'}
+            value={this.state.organizationName}
+            onChange={this.onChangeHandler}
+            placeholder={'Name your organization'}
+          />
+          <Button
+            variant='dark'
+            size='lg'
+            className="mx-auto rounded-pill app-btn"
+            onClick={this.createOrganization}
+          >
+            create new organization
+          </Button>
+
+        </div>
+      </div>
+    );
+  }
 }
 
 
