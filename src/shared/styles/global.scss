@@ -4,6 +4,7 @@ html, body, #root {
   width: 100%;
 }
 
+
 .app-btn{
   background: #6B7AFF !important;
   background-color: #6B7AFF !important;
@@ -88,6 +89,11 @@ html, body, #root {
       line-height: 21px;
       color: #30313B;
     }
+    &:focus{
+      border:none;
+      outline-color: transparent;
+
+    }
   }
 
 }
@@ -122,3 +128,7 @@ html, body, #root {
   }
 }
 
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */

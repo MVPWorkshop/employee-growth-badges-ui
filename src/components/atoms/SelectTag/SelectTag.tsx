@@ -5,11 +5,9 @@ import {ISelectTagProps, FormControlElement} from "./selectTag.types";
 
 const SelectTag: FC<ISelectTagProps> = (props) => {
    const onChangeHandler:React.ChangeEventHandler<FormControlElement> = (e) => {
-        props.onChange(e.target.value, props.name);
+        props.onChange(e.target.value.toUpperCase(), props.name);
    }
    return(
-
-        <Form>
             <Form.Group controlId="exampleForm.SelectCustom">
                 <Form.Label>{props.label}</Form.Label>
                 <Form.Control onChange={onChangeHandler} as="select" custom value={props.value}>
@@ -20,7 +18,6 @@ const SelectTag: FC<ISelectTagProps> = (props) => {
                     })}
                 </Form.Control>
             </Form.Group>
-        </Form>
    )
 }
 export default SelectTag;

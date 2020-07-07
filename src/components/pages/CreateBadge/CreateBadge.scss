@@ -26,7 +26,7 @@
   }
   .left-side--inner{
     max-width: 416px;
-    height:650px;
+    height:670px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -98,7 +98,12 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width:75%;
+    width:72%;
+    position: relative;
+  }
+  button:first-child{
+    position: absolute;
+    left: 0%;
   }
   .badge-item--wrapper{
     display: flex;

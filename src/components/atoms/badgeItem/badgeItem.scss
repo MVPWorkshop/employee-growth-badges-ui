@@ -1,6 +1,7 @@
 .badge-item--wrapper{
-  width:calc(50% - 29px);
+  width:calc(50% - 20px);
   position: relative;
+  margin-bottom: 40px;
   img{
     width:100%;
   }
@@ -22,6 +23,12 @@
     position: absolute;
     top:42px;
     right:47px;
+  }
+  .badge-status{
+    position: absolute;
+    top: 10%;
+    right: 9%;
+    width: 33%;
   }
   span.vote{
     background: #FFFFFF;
