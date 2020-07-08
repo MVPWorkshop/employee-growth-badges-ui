@@ -14,6 +14,7 @@ const Button: FC<IButtonProps> = (props) => {
   } = props;
 
   const btnClassName = [
+    'align-items-center',
     styles.appButton,
     className,
     disabled ? 'disabledElement' : '',

@@ -15,7 +15,6 @@ onChangeHandler = (value:string, name:string) => {
     })
 }
   render() {
-    console.log(this.state)
     return (
       <div className='container'>
         <Button/>

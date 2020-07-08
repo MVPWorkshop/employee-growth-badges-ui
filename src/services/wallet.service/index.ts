@@ -14,7 +14,7 @@ class WalletService {
   public async sign(data: string): Promise<string | undefined> {
     const currentAddress = await Web3Service.getCurrentAccountAddress();
     let signature: string | undefined;
-console.log(currentAddress)
+
     if (this._walletType === EWalletTypes.METAMASK) {
       signature = await MetaMaskWalletService.signData(data, currentAddress);
     }

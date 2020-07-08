@@ -79,9 +79,22 @@ class RegisterPage extends Component<RouteChildrenProps> {
       default: {
         return (
           <Fragment>
-            <button className="btn btn-dark btn-lg mx-auto rounded-pill app-btn" role="button"
-                    onClick={this.nextStep}>continue <img src={Arrow}/></button>
-            <button className="btn btn-lg mx-auto app-btn skip-btn" role="button" onClick={this.nextStep}>SKIP</button>
+            <Button
+              size='lg'
+              variant='dark'
+              className="mx-auto rounded-pill app-btn"
+              onClick={this.nextStep}
+            >
+              continue <img src={Arrow}/>
+            </Button>
+            <Button
+              size='lg'
+              variant='link'
+              className='mx-auto app-btn skip-btn'
+              onClick={this.nextStep}
+            >
+              SKIP
+            </Button>
           </Fragment>
         );
       }

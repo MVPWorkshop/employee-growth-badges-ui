@@ -9,6 +9,7 @@ import BadgeItem from '../../atoms/BadgeItem/BadgeItem';
 import TextInput from '../../atoms/TextInput/TextInput';
 import './createBadgePage.scss';
 import BadgeService from '../../../services/badge/badge.service';
+import Button from '../../atoms/Button/Button';
 
 const allCreatingSteps = [
   EBadgeSteps.SELECT_TYPE,
@@ -41,7 +42,6 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
   };
 
   nextCreationStep = async () => {
-    console.log(this.props)
     const currentCreationIndex = allCreatingSteps.indexOf(this.state.currentCreationStep);
     const nextCreationStepIndex = currentCreationIndex + 1;
 
@@ -64,8 +64,7 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
     const currentCreationIndex = allCreatingSteps.indexOf(this.state.currentCreationStep);
 
     const prevCreationStepIndex = currentCreationIndex - 1;
-    console.log('currentCreationIndex' + currentCreationIndex);
-    console.log('nextCreationStepIndex' + prevCreationStepIndex);
+
     if (prevCreationStepIndex >= 0) {
       this.setState({
         currentCreationStep: allCreatingSteps[prevCreationStepIndex],
@@ -132,21 +131,33 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
   };
 
   render() {
-
+    const progressBarValue = 100 / (allCreatingSteps.length) * (allCreatingSteps.indexOf(this.state.currentCreationStep) + 1);
     let BadgeImg = <BadgeItem badgeId={''} badgeType={this.state.badgeType}/>;
+
     if (this.state.currentCreationStep !== EBadgeSteps.PREVIEW) {
       return (
         <div className="create-badge--wrapper">
           <div className="left-side">
             <div className="left-side--inner">
-              <button className="btn btn-lg" role="button" onClick={this.prevCreationStep}><img
-                src={LeftABack}/></button>
+              <Button
+                variant='link'
+                size='lg'
+                onClick={this.prevCreationStep}
+              >
+                <img src={LeftABack}/>
+              </Button>
               <div className="progressbar-wrapper">
-                <ProgressBar variant="warning" now={33.33}/>
+                <ProgressBar variant="warning" now={progressBarValue}/>
               </div>
               {this.renderCreatingContent()}
-              <button className="btn btn-dark btn-lg mx-auto rounded-pill app-btn" role="button"
-                      onClick={this.nextCreationStep}>continue <img src={Arrow}/></button>
+              <Button
+                variant='dark'
+                size='lg'
+                className="mx-auto rounded-pill app-btn"
+                onClick={this.nextCreationStep}
+              >
+                continue <img src={Arrow}/>
+              </Button>
             </div>
           </div>
           <div className="right-side">
@@ -159,18 +170,25 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
 
         <div className="preview-badge--wrapper">
           <div className="preview-badge--header">
-            <button className="btn btn-lg" role="button" onClick={this.prevCreationStep}><img src={LeftABack}/></button>
+            <Button
+              variant='link'
+              size='lg'
+              onClick={this.prevCreationStep}
+            >
+              <img src={LeftABack}/>
+            </Button>
             <h1 className="text-center app-title mw-469">Preview</h1>
           </div>
           {BadgeImg}
           <span>Destination address: {this.state.address}</span>
-          <button
-            className="btn btn-dark btn-lg mx-auto rounded-pill app-btn"
-            role="button"
+          <Button
+            variant='dark'
+            size='lg'
+            className="mx-auto rounded-pill app-btn"
             onClick={this.nextCreationStep}
           >
             Confirm and send
-          </button>
+          </Button>
         </div>
 
       );

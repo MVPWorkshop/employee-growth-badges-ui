@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, Fragment } from 'react';
 import './collaborators.scss';
 import CancelBtn from '../../../shared/assets/img/cancel-btn.svg';
 import CollaboratorsService from '../../../services/collaborators/collaborators.service';
@@ -47,23 +47,25 @@ const Collaborators: FC<ICollaboratorsProps> = (props) => {
       <div className="collaborators-list-wrapper">
         <h2>Collaborators</h2>
         {!loading &&
-          <div className="collaborators-list-outher">
-            {collaborators.length > 0 && collaborators.map((collaborator) => (
-              <div className="collaborators-list" key={collaborator.id}>
-                <div className="collaborators-list-title">Address:</div>
-                <div className="collaborators-list-address">
-                  <span>{collaborator.address.address}</span>
-                  {(collaborator.address.address !== props.user.address && isPartOfOrganization) &&
-                    <img
-                      src={CancelBtn}
-                      alt="Cancel Icon"
-                      className='cursor-pointer'
-                      onClick={() => revokeCollaborator(collaborator.address_id)}
-                    />
-                  }
-                </div>
-              </div>
-            ))}
+          <div className="collaborators-list-outer">
+            <div className="collaborators-list" >
+              {collaborators.length > 0 && collaborators.map((collaborator) => (
+                <Fragment key={collaborator.id}>
+                  <div className="collaborators-list-title">Address:</div>
+                  <div className="collaborators-list-address">
+                    <span>{collaborator.address.address}</span>
+                    {(collaborator.address.address !== props.user.address && isPartOfOrganization) &&
+                      <img
+                        src={CancelBtn}
+                        alt="Cancel Icon"
+                        className='cursor-pointer'
+                        onClick={() => revokeCollaborator(collaborator.address_id)}
+                      />
+                    }
+                  </div>
+                </Fragment>
+              ))}
+            </div>
 
             {isPartOfOrganization &&
               <div className="collaborators-btn-wrapper">
