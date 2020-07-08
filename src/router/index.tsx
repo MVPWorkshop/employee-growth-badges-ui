@@ -10,10 +10,9 @@ import CreateCollaboratorPage from "../components/pages/CreateCollaboratorPage/C
 import CreateBadgePage from "../components/pages/CreateBadgePage/CreateBadgePage";
 import PrivateRoute from './private.route';
 
-
 const AppRouter = () => (
   <Switch>
-    <Route path='/' exact={true} component={ExampleHomePage}/>
+    <Redirect from='/' to='/welcome'/>
     <Route path='/welcome' exact={true} component={WelcomePage}/>
     <Route path='/register' exact={true} component={RegisterPage}/>
     <PrivateRoute path='/badges' exact={true} component={BadgesPage}/>
