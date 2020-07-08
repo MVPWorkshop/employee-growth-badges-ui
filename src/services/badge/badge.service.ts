@@ -1,5 +1,6 @@
 import axiosInstance from '../../shared/utils/api.util';
 import { IBadgeResponse } from './badge.types';
+import { EBadgeType } from '../../components/atoms/BadgeItem/badgeItem.types';
 
 class BadgeService {
   /**
@@ -16,6 +17,21 @@ class BadgeService {
 
       return response.data;
 
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public static async createBadge(data: {
+    badgeType: EBadgeType;
+    organizationId: string;
+    createdForAddress: string;
+    specialNote?: string;
+  }) {
+    try {
+      const response = await axiosInstance.post('/badges', data);
+
+      return response.data;
     } catch (error) {
       throw error;
     }

@@ -5,10 +5,10 @@ import {ISelectTagProps, FormControlElement} from "./selectTag.types";
 
 const SelectTag: FC<ISelectTagProps> = (props) => {
    const onChangeHandler:React.ChangeEventHandler<FormControlElement> = (e) => {
-        props.onChange(e.target.value.toUpperCase(), props.name);
+        props.onChange(e.target.value, props.name);
    }
    return(
-            <Form.Group controlId="exampleForm.SelectCustom">
+            <Form.Group controlId="exampleForm.SelectCustom" key={`${Math.random()}`}>
                 <Form.Label>{props.label}</Form.Label>
                 <Form.Control onChange={onChangeHandler} as="select" custom value={props.value}>
                     {props.options.map(option=>{

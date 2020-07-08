@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { EBadgeSteps } from './createBadgePage.types';
+import { EBadgeSteps, ICreateBadgePageProps } from './createBadgePage.types';
 import LeftABack from '../../../shared/assets/img/left-arrow.svg';
 import Arrow from '../../../shared/assets/img/arrow.svg';
 import { ProgressBar } from 'react-bootstrap';
@@ -8,23 +8,31 @@ import { EBadgeType } from '../../atoms/BadgeItem/badgeItem.types';
 import BadgeItem from '../../atoms/BadgeItem/BadgeItem';
 import TextInput from '../../atoms/TextInput/TextInput';
 import './createBadgePage.scss';
+import BadgeService from '../../../services/badge/badge.service';
 
 const allCreatingSteps = [
   EBadgeSteps.SELECT_TYPE,
   EBadgeSteps.SELECT_DESTINATION,
   EBadgeSteps.NOTE,
   EBadgeSteps.PREVIEW
-
 ];
 
-class CreateBadgePage extends Component {
+class CreateBadgePage extends Component<ICreateBadgePageProps> {
+
+  private organizationId: string | undefined | null;
 
   state = {
     currentCreationStep: allCreatingSteps[0],
     badgeType: EBadgeType.PROMOTED,
-    Address: '',
-    Note: ''
+    address: '',
+    note: ''
   };
+
+  componentWillMount(): void {
+    const params = new URLSearchParams(this.props.location.search)
+
+    this.organizationId = params.get("organizationId")
+  }
 
   onChangeHandler = (value: string, name: string) => {
     this.setState({
@@ -32,26 +40,22 @@ class CreateBadgePage extends Component {
     });
   };
 
-  onButtonClick = (nextStep?: EBadgeSteps) => () => {
-    if (nextStep) {
-      this.setState({
-        currentCreationStep: nextStep
-      });
-    } else {
-
-    }
-  };
-
-  nextCreationStep = () => {
+  nextCreationStep = async () => {
+    console.log(this.props)
     const currentCreationIndex = allCreatingSteps.indexOf(this.state.currentCreationStep);
     const nextCreationStepIndex = currentCreationIndex + 1;
 
-    if (nextCreationStepIndex) {
+    if (nextCreationStepIndex < allCreatingSteps.length) {
       this.setState({
         currentCreationStep: allCreatingSteps[nextCreationStepIndex],
       });
     } else {
-
+      await BadgeService.createBadge({
+        badgeType: this.state.badgeType,
+        createdForAddress: this.state.address,
+        specialNote: this.state.note,
+        organizationId: this.organizationId || ""
+      })
     }
   };
 
@@ -66,7 +70,8 @@ class CreateBadgePage extends Component {
         currentCreationStep: allCreatingSteps[prevCreationStepIndex],
       });
     } else {
-
+      // @ts-ignore bad definitions file
+      this.props.history.goBack()
     }
   };
 
@@ -80,7 +85,13 @@ class CreateBadgePage extends Component {
               label={''}
               value={this.state['badgeType']}
               name={'badgeType'}
-              options={[EBadgeType.PROMOTED.charAt(0).toUpperCase() + EBadgeType.PROMOTED.slice(1).toLowerCase(), EBadgeType.ANNIVERSARY.charAt(0).toUpperCase() + EBadgeType.ANNIVERSARY.slice(1).toLowerCase(), EBadgeType.TEAMMATE_MONTH.charAt(0).toUpperCase() + EBadgeType.TEAMMATE_MONTH.slice(1).toLowerCase(), EBadgeType.TEAMMATE_YEAR.charAt(0).toUpperCase() + EBadgeType.TEAMMATE_YEAR.slice(1).toLowerCase(), EBadgeType.THANK_YOU.charAt(0).toUpperCase() + EBadgeType.THANK_YOU.slice(1).toLowerCase()]}
+              options={[
+                EBadgeType.PROMOTED,
+                EBadgeType.ANNIVERSARY,
+                EBadgeType.TEAMMATE_MONTH,
+                EBadgeType.TEAMMATE_YEAR,
+                EBadgeType.THANK_YOU
+              ]}
               onChange={this.onChangeHandler}
             />
           </Fragment>
@@ -90,8 +101,13 @@ class CreateBadgePage extends Component {
         return (
           <Fragment>
             <h1 className="app-title mw-469">Select destination address</h1>
-            <TextInput name={'Address'} label={''} value={this.state.Address} onChange={this.onChangeHandler}
-                       placeholder={'Paste the address here'}/>
+            <TextInput
+              name={'address'}
+              label={''}
+              value={this.state.address}
+              onChange={this.onChangeHandler}
+              placeholder={'Paste the address here'}
+            />
           </Fragment>
         );
       }
@@ -99,8 +115,15 @@ class CreateBadgePage extends Component {
         return (
           <Fragment>
             <h1 className="app-title mw-469">Special note</h1>
-            <textarea className="form-control" id="exampleFormControlTextarea1" name={'Note'} value={this.state.Note}
-                      placeholder={'Add more personal note here...'}></textarea>
+            <TextInput
+              className="form-control"
+              id="exampleFormControlTextarea1"
+              name={'note'}
+              value={this.state.note}
+              placeholder={'Add more personal note here...'}
+              multiple={true}
+              onChange={this.onChangeHandler}
+            />
           </Fragment>
         );
       }
@@ -139,8 +162,14 @@ class CreateBadgePage extends Component {
             <h1 className="text-center app-title mw-469">Preview</h1>
           </div>
           {BadgeImg}
-          <span>Destination address: 3PthZ9PWBevkEFf9ejRbd7JQuXazV3XWSt</span>
-          <button className="btn btn-dark btn-lg mx-auto rounded-pill app-btn" role="button">confirm and send</button>
+          <span>Destination address: {this.state.address}</span>
+          <button
+            className="btn btn-dark btn-lg mx-auto rounded-pill app-btn"
+            role="button"
+            onClick={this.nextCreationStep}
+          >
+            Confirm and send
+          </button>
         </div>
 
       );

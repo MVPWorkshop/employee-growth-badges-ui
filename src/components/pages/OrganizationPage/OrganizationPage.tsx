@@ -52,7 +52,7 @@ class OrganizationPage extends Component<IOrganizationPageProps, IOrganizationPa
           title={'CryptoTrophies'}
           navigationButton={{
             label: 'create new badge',
-            href: '/create-badge'
+            href: `/create-badge?organizationId=${this.organizationId}`
           }}
           user={this.props.user}
           organizationId={this.organizationId}
