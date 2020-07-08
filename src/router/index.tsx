@@ -12,7 +12,6 @@ import PrivateRoute from './private.route';
 
 const AppRouter = () => (
   <Switch>
-    <Redirect from='/' to='/welcome'/>
     <Route path='/welcome' exact={true} component={WelcomePage}/>
     <Route path='/register' exact={true} component={RegisterPage}/>
     <PrivateRoute path='/badges' exact={true} component={BadgesPage}/>
@@ -20,6 +19,7 @@ const AppRouter = () => (
     <PrivateRoute path='/create-organization' exact={true} component={CreateOrganizationPage}/>
     <PrivateRoute path='/organizations/:id/add-collaborator' exact={true} component={CreateCollaboratorPage}/>
     <PrivateRoute path='/create-badge' exact={true} component={CreateBadgePage}/>
+    <Redirect from='/' to='/welcome'/>
     <Redirect to={'/not-found'}/>
   </Switch>
 );
