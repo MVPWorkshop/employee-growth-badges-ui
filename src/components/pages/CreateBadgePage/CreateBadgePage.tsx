@@ -56,6 +56,7 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
         specialNote: this.state.note,
         organizationId: this.organizationId || ""
       })
+        this.props.history.push(`/organizations/${this.organizationId}`)
     }
   };
 
@@ -132,7 +133,7 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
 
   render() {
 
-    let BadgeImg = <BadgeItem badgeType={this.state.badgeType}/>;
+    let BadgeImg = <BadgeItem badgeId={''} badgeType={this.state.badgeType}/>;
     if (this.state.currentCreationStep !== EBadgeSteps.PREVIEW) {
       return (
         <div className="create-badge--wrapper">

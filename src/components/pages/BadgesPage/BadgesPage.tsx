@@ -15,9 +15,8 @@ class BadgesPage extends Component<IWithPrivateRouteProps, IBadgesPageState> {
 
   async componentDidMount() {
     try {
-      const badges = await BadgeService.getBadgeList();
       this.setState({
-        badges
+        badges: this.props.user.badges
       })
     } catch (error) {
       console.log(error)
@@ -44,7 +43,12 @@ class BadgesPage extends Component<IWithPrivateRouteProps, IBadgesPageState> {
               <h2>My badges</h2>
               <div className="badges-wrapper">
                 {this.state.badges.map((badge) => (
-                  <BadgeItem key={badge.id} badgeType={badge.badge_type}/>
+                  <BadgeItem
+                      badgeId={badge.id}
+                    key={badge.id}
+                    badgeType={badge.badge_type}
+                    status={badge.status}
+                  />
                 ))}
               </div>
             </Fragment>

@@ -36,6 +36,14 @@ class BadgeService {
       throw error;
     }
   }
+
+  public static async markBadgePending(badgeId: string) {
+    try {
+      await axiosInstance.put(`/badges/${badgeId}`);
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default BadgeService;

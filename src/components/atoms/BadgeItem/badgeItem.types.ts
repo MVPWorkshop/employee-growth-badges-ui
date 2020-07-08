@@ -1,3 +1,5 @@
+import { IBadgeResponse } from '../../../services/badge/badge.types';
+
 export enum EBadgeStatus {
     VOTING = 'VOTING',
     PENDING = 'PENDING',
@@ -14,6 +16,8 @@ export enum EBadgeType {
 }
 
 export interface IBadgeItemProps {
+    badgeId: string;
     status?:EBadgeStatus;
     badgeType: EBadgeType;
+    badge?: IBadgeResponse;
 }

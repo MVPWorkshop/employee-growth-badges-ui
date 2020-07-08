@@ -84,7 +84,7 @@ class OrganizationPage extends Component<IOrganizationPageProps, IOrganizationPa
                       {badges.length > 0 ?
                         <div className="badges-wrapper">
                           {badges.map(badge => (
-                            <BadgeItem status={badge.status} badgeType={badge.badge_type}/>
+                            <BadgeItem badgeId={badge.id} status={badge.status} badgeType={badge.badge_type} badge={badge}/>
                           ))}
                         </div>
                         : <div className='mt-4'><p>No badges here...</p></div>
