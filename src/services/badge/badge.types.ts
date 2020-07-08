@@ -9,4 +9,6 @@ export interface IBadgeResponse {
   badge_type: EBadgeType;
   token_id_on_chain: string;
   status: EBadgeStatus;
+  createdAt: string;
+  updatedAt: string;
 }
