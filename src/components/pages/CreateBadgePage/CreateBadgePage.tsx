@@ -32,7 +32,7 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
   componentWillMount(): void {
     const params = new URLSearchParams(this.props.location.search);
 
-    this.organizationId = params.get("organizationId")
+    this.organizationId = params.get('organizationId');
   }
 
   onChangeHandler = (value: string, name: string) => {
@@ -54,9 +54,9 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
         badgeType: this.state.badgeType,
         createdForAddress: this.state.address,
         specialNote: this.state.note,
-        organizationId: this.organizationId || ""
-      })
-        this.props.history.push(`/organizations/${this.organizationId}`)
+        organizationId: this.organizationId || ''
+      });
+      this.props.history.push(`/organizations/${this.organizationId}`);
     }
   };
 
@@ -71,7 +71,7 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
       });
     } else {
       // @ts-ignore bad definitions file
-      this.props.history.goBack()
+      this.props.history.goBack();
     }
   };
 
