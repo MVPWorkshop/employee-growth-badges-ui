@@ -18,6 +18,7 @@ const BadgeItem: FC<IBadgeItemProps> = (props) => {
   const [showVoteDialog, setShowVoteDialog] = useState(false);
   const [showInfoDialog, setShowInfoDialog] = useState(false);
   const [creatorInfo, setCreatorInfo] = useState<IAddressResponse | undefined>(undefined);
+    const [isSending, setIsSending] = useState(false);
 
   const handleVote = (vote: boolean) => async () => {
     try {
@@ -33,8 +34,9 @@ const BadgeItem: FC<IBadgeItemProps> = (props) => {
       if (!props.badge) {
         throw new Error('Can\'t send badge without address');
       }
-
+            setIsSending(true);
       await ContractService.sendBadge(props.badgeId, props.badge.created_for_address);
+            setIsSending(false);
     } catch (error) {
 
     } finally {
@@ -91,8 +93,8 @@ const BadgeItem: FC<IBadgeItemProps> = (props) => {
       </Modal>
 
       <Modal show={showInfoDialog && (props.badge)}
-             onHide={() => setShowInfoDialog(false)}>
-        <Modal.Header closeButton>
+             onHide={!isSending ? () => setShowInfoDialog(false) : () => {}}>
+        <Modal.Header closeButton={!isSending}>
           Token info
         </Modal.Header>
         <Modal.Body>
@@ -124,7 +126,7 @@ const BadgeItem: FC<IBadgeItemProps> = (props) => {
         {
           props.status === EBadgeStatus.VOTE_SUCCESSFUL &&
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleTokenSend}>
+            <Button variant="secondary" onClick={handleTokenSend} loading={isSending}>
               SEND TOKEN
             </Button>
           </Modal.Footer>

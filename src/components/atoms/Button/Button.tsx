@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Button as BTButton } from 'react-bootstrap';
+import { Button as BTButton, Spinner } from 'react-bootstrap';
 import { IButtonProps } from './button.types';
 import styles from './button.module.scss';
 
@@ -10,6 +10,7 @@ const Button: FC<IButtonProps> = (props) => {
     onClick,
     disabled,
     uppercase,
+    loading,
     ...other
   } = props;
 
@@ -25,10 +26,18 @@ const Button: FC<IButtonProps> = (props) => {
     <BTButton
       className={btnClassName}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || !!loading}
+
       {...other}
     >
-      {children}
+      {loading ?
+        <>
+          <Spinner animation={'border'}/>
+          <span>Please wait</span>
+        </>
+        :
+        children
+      }
     </BTButton>
   )
 };

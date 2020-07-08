@@ -1,8 +1,8 @@
 import axiosInstance from '../../shared/utils/api.util';
 import { IGetStaticContractDataResponse } from './contractService.types';
 import EmployeeRecognitionContract from '../../contracts/employeeRecognition.contract';
-import BadgeService from '../badge/badge.service';
 import { AbiItem } from 'web3-utils';
+import BadgeService from '../badge/badge.service';
 
 class ContractService {
 
@@ -26,10 +26,10 @@ class ContractService {
       const erContract = new EmployeeRecognitionContract(abi, address);
 
       const tokenTypeId = await erContract.createToken();
-      const tokenId = await erContract.mintToken(tokenTypeId, sendToAddress, badgeId);
+       await erContract.mintToken(tokenTypeId, sendToAddress, badgeId);
       await BadgeService.markBadgePending(badgeId);
 
-      return tokenId;
+
     } catch (error) {
       console.log(error);
       throw error;

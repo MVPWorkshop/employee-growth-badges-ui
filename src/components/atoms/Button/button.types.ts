@@ -4,5 +4,6 @@ import { ButtonProps } from 'react-bootstrap';
 export interface IButtonProps extends ButtonProps {
   className?: string
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  uppercase?: boolean
+  uppercase?: boolean;
+  loading?: boolean;
 }
