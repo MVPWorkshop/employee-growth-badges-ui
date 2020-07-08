@@ -81,10 +81,10 @@ const BadgeItem: FC<IBadgeItemProps> = (props) => {
           Vote
         </Modal.Header>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleVote(true)}>
+          <Button variant="primary" onClick={handleVote(true)}>
             VOTE FOR
           </Button>
-          <Button variant="primary" onClick={handleVote(false)}>
+          <Button variant="secondary" onClick={handleVote(false)}>
             VOTE AGAINST
           </Button>
         </Modal.Footer>
