@@ -30,7 +30,7 @@ class CreateBadgePage extends Component<ICreateBadgePageProps> {
   };
 
   componentWillMount(): void {
-    const params = new URLSearchParams(this.props.location.search)
+    const params = new URLSearchParams(this.props.location.search);
 
     this.organizationId = params.get("organizationId")
   }

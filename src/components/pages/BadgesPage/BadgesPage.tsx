@@ -3,7 +3,6 @@ import NavigationBar from '../../molecules/NavigationBar/NavigationBar';
 import AddressBar from '../../atoms/AddressBar/AddressBar';
 import BadgeItem from '../../atoms/BadgeItem/BadgeItem';
 import { IWithPrivateRouteProps } from '../../../router/route.types';
-import BadgeService from '../../../services/badge/badge.service';
 import { IBadgesPageState } from './badgesPage.type';
 import './badgesPage.scss';
 
@@ -17,14 +16,14 @@ class BadgesPage extends Component<IWithPrivateRouteProps, IBadgesPageState> {
     try {
       this.setState({
         badges: this.props.user.badges
-      })
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
   render() {
-    const { user } = this.props;
+    const {user} = this.props;
 
     return (
       <div>
@@ -37,14 +36,14 @@ class BadgesPage extends Component<IWithPrivateRouteProps, IBadgesPageState> {
           }}
         />
         <AddressBar address={user.address}/>
-        <div className="badges-outer">
+        <div className="badges-outer container">
           {this.state.badges.length > 0 ?
             <Fragment>
               <h2>My badges</h2>
               <div className="badges-wrapper">
                 {this.state.badges.map((badge) => (
                   <BadgeItem
-                      badgeId={badge.id}
+                    badgeId={badge.id}
                     key={badge.id}
                     badgeType={badge.badge_type}
                     status={badge.status}
